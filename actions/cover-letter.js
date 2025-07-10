@@ -7,6 +7,26 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+// new stuff added here to try
+
+async function tryGenerateContentWithRetry(prompt, retries = 3, delay = 1000) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const result = await model.generateContent(prompt);
+      return result;
+    } catch (error) {
+      if (error.message.includes("503") && attempt < retries) {
+        console.warn(`Attempt ${attempt} failed: ${error.message}. Retrying in ${delay}ms...`);
+        await new Promise((res) => setTimeout(res, delay));
+      } else {
+        throw error;
+      }
+    }
+  }
+}
+
+// new stuff ends here
+
 export async function generateCoverLetter(data) {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
