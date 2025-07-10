@@ -30,7 +30,10 @@ const HeroSection = () => {
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
         <div className="space-y-6 mx-auto">
-          <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title animate-gradient">
+          {/* <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title animate-gradient"> */}
+          {/* <h1 className="text-5xl font-extrabold md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-[#7B61FF] via-[#A249E4] to-[#FF5A3C] text-transparent bg-clip-text"> */}
+          <h1 className="text-5xl font-extrabold md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-[#3b82f6] via-[#8b5cf6] to-[#ec4899]  text-transparent bg-clip-text">
+
             Your AI Career Coach for
             <br />
             Professional Success
@@ -50,14 +53,14 @@ const HeroSection = () => {
         </div>
         <div className="hero-image-wrapper mt-5 md:mt-0">
           <div ref={imageRef} className="hero-image">
-            <Image
+            {/* <Image
               src="/banner.png"
               width={1280}
               height={720}
               alt="Dashboard Preview"
               className="rounded-lg shadow-2xl border mx-auto"
               priority
-            />
+            /> */}
           </div>
         </div>
       </div>

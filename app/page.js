@@ -185,7 +185,9 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full">
+      {/* <section className="w-full"> */}
+      {/* <section className="w-full bg-gradient-to-b from-indigo-500 via-gray-100 to-slate-800">
+
         <div className="mx-auto py-24 gradient rounded-lg">
           <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
@@ -206,7 +208,30 @@ export default function LandingPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <section className="w-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700">
+  <div className="container mx-auto py-24 px-6 rounded-lg">
+    <div className="flex flex-col items-center justify-center text-center space-y-6 max-w-3xl mx-auto">
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+        Ready to Accelerate Your Career?
+      </h2>
+      <p className="text-white/80 text-lg md:text-xl">
+        Join thousands of professionals who are advancing their careers with AI-powered guidance.
+      </p>
+      <Link href="/dashboard" passHref>
+        <Button
+          size="lg"
+          variant="secondary"
+          className="h-11 px-6 mt-2 animate-bounce bg-white text-indigo-600 hover:bg-gray-100"
+        >
+          Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </Link>
+    </div>
+  </div>
+</section>
+
     </>
   );
 }

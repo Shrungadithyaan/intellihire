@@ -156,8 +156,8 @@ const DashboardView = ({ insights }) => {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={salaryData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
+                <XAxis dataKey="name" tick={{ fill: "white" }} />
+                <YAxis tick={{ fill: "white" }} />
                 <Tooltip
                   content={({ active, payload, label }) => {
                     if (active && payload && payload.length) {
@@ -175,9 +175,13 @@ const DashboardView = ({ insights }) => {
                     return null;
                   }}
                 />
-                <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K)" />
+                <Bar dataKey="min" fill="#38bdf8" name="Min Salary (K)" />    
+                <Bar dataKey="median" fill="#0ea5e9" name="Median Salary (K)" /> 
+                <Bar dataKey="max" fill="#0284c7" name="Max Salary (K)" />     
+
+                  {/* <Bar dataKey="min" fill="#94a3b8" name="Min Salary (K)" />
                 <Bar dataKey="median" fill="#64748b" name="Median Salary (K)" />
-                <Bar dataKey="max" fill="#475569" name="Max Salary (K)" />
+                <Bar dataKey="max" fill="#475569" name="Max Salary (K)" /> */}
               </BarChart>
             </ResponsiveContainer>
           </div>

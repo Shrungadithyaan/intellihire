@@ -211,4 +211,5 @@ const OnboardingForm = ({ industries }) => {
   );
 };
 
+console.log(updateUser)
 export default OnboardingForm;

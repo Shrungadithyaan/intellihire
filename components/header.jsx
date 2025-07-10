@@ -20,12 +20,21 @@ import {
 import Image from "next/image";
 import { checkUser } from "@/lib/checkUser";
 
+/*************  ✨ Windsurf Command 🌟  *************/
+/**
+ * Header component that provides navigation and user account actions.
+ * Renders a fixed header with a logo, navigation links, and user authentication buttons.
+ * Utilizes Clerk for authentication handling and offers growth tools access for signed-in users.
+ */
 export default async function Header() {
+  // Check and verify user authentication status
   await checkUser();
 
+  // Return the header JSX
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Logo linking to home page */}
         <Link href="/">
           <Image
             src={"/logo.png"}
@@ -38,7 +47,9 @@ export default async function Header() {
 
         {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
+          {/* Displayed when user is signed in */}
           <SignedIn>
+            {/* Link to dashboard with industry insights */}
             <Link href="/dashboard">
               <Button
                 variant="outline"
@@ -52,6 +63,7 @@ export default async function Header() {
               </Button>
             </Link>
 
+            {/* Growth Tools Dropdown Menu */}
             {/* Growth Tools Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -116,3 +128,4 @@ export default async function Header() {
     </header>
   );
 }
+/*******  1a080ee6-4714-4ae4-b927-4c9bb29741ff  *******/
