@@ -46,6 +46,7 @@ export default function ResumeBuilder({ initialContent }) {
       experience: [],
       education: [],
       projects: [],
+      papers: [],
     },
   });
 
@@ -98,7 +99,7 @@ export default function ResumeBuilder({ initialContent }) {
   };
 
   const getCombinedContent = () => {
-    const { summary, skills, experience, education, projects } = formValues;
+    const { summary, skills, experience, education, projects , papers} = formValues;
     return [
       getContactMarkdown(),
       summary && `## Professional Summary\n\n${summary}`,
@@ -106,6 +107,8 @@ export default function ResumeBuilder({ initialContent }) {
       entriesToMarkdown(experience, "Work Experience"),
       entriesToMarkdown(education, "Education"),
       entriesToMarkdown(projects, "Projects"),
+      
+      entriesToMarkdown(papers, "Papers"),
     ]
       .filter(Boolean)
       .join("\n\n");
@@ -356,6 +359,27 @@ export default function ResumeBuilder({ initialContent }) {
               {errors.projects && (
                 <p className="text-sm text-red-500">
                   {errors.projects.message}
+                </p>
+              )}
+            </div>
+            {/* Papers */}
+           
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Papers</h3>
+              <Controller
+                name="papers"
+                control={control}
+                render={({ field }) => (
+                  <EntryForm
+                    type="paper"
+                    entries={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
+              {errors.papers && (
+                <p className="text-sm text-red-500">
+                  {errors.papers.message}
                 </p>
               )}
             </div>
